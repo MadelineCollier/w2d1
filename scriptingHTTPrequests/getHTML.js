@@ -8,7 +8,7 @@ var requestOptions = {
 
 function getHTML (options, callback) {
 
-  var buffer;
+  var buffer = "";
 
   https.get(options, function (response) {
 

@@ -10,7 +10,7 @@ var requestOptions = {
 
 function getAndPrintHTML (options) {
 
-  var buffer;
+  var buffer = "";
 
   https.get(options, function (response) {
 

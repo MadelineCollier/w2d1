@@ -8,7 +8,7 @@ function getAndPrintHTML () {
     path: '/http-examples/step2.html'
   };
 
-  var buffer;
+  var buffer = "";
 
   https.get(requestOptions, function (response) {
 
