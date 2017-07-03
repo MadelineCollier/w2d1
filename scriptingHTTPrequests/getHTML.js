@@ -8,18 +8,18 @@ var requestOptions = {
 
 function getHTML (options, callback) {
 
+  var buffer;
+
   https.get(options, function (response) {
 
     response.setEncoding('utf8');
 
-    var buffer;
-
     response.on('data', function (data) {
       buffer += data.toString();
-      printHTML(buffer);
     });
 
     response.on('end', function() {
+      callback(buffer);
       console.log('Response stream complete.');
     });
 
@@ -32,4 +32,4 @@ function printHTML (html) {
 }
 
 
-getHTML(requestOptions, printHTML());
+getHTML(requestOptions, printHTML);
