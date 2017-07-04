@@ -44,3 +44,32 @@ http.get('http://nodejs.org/dist/index.json', function(res) {
 }).on('error', function(e) {
   console.error(`Got error: ${e.message}`);
 });
+
+
+
+
+
+// GITHUB AVATAR HELP:
+
+function getOptions(path) {
+  return options = {
+    url: 'https://api.github.com' + path,
+    headers: {
+      'User-Agent': 'kittenfingers'
+    },
+    qs: {
+      access_token: process.env.GITHUB_ACCESS_TOKEN
+    }
+  };
+}
+
+
+request(options, function(error, response, body) {
+  try {
+    const data = JSON.parse(body);
+    console.log(data);
+  } catch (err) {
+    console.log('Failed to parse content body');
+  }
+});
+
